@@ -33,10 +33,19 @@ function init() {
   enemies = [];
   keys = {};
   score = 0;
-  enemyCount = 12; // number of enemies to spawn
+  enemyCount = 12; // initial enemies to spawn
   gameOver = false;
 
   for (let i = 0; i < enemyCount; i++) spawnEnemy();
+
+  // spawn new enemies every 3 seconds while alive
+  if (window.enemySpawner) clearInterval(window.enemySpawner);
+  window.enemySpawner = setInterval(() => {
+    if (!gameOver) {
+      spawnEnemy();
+      enemyCount++; // increase total enemy count
+    }
+  }, 3000); // every 3 seconds
 }
 
 function spawnEnemy() {
@@ -62,8 +71,11 @@ function spawnEnemy() {
 }
 
 function update() {
-  if (gameOver) return;
-
+  if (gameOver) { 
+    clearInterval(window.enemySpawner); // stop spawning when game ends
+    return;
+  }
+  
   // Player movement
   if (keys['w']) player.y -= speed;
   if (keys['s']) player.y += speed;
