@@ -14,7 +14,7 @@ body {
   display: flex;
   width: 90%;
   max-width: 1200px;
-  justify-content: space-between;
+  justify-content: flex-start; /* or center */
   align-items: flex-start;
 }
 
