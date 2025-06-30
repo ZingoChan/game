@@ -1,24 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<title>Untitled Game - Home</title>
-<style>
-  body { margin: 0; font-family: sans-serif; background: #111; color: #fff; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; }
-  h1 { font-size: 48px; }
-  .btn { margin: 20px; padding: 20px 40px; font-size: 24px; background: #333; color: #fff; border: none; cursor: pointer; border-radius: 10px; }
-  .btn:hover { background: #555; }
-  .notes { margin-top: 40px; max-width: 600px; text-align: center; }
-</style>
+  <meta charset="UTF-8" />
+  <title>Untitled Shooting Game</title>
+  <link rel="stylesheet" href="home.css" />
 </head>
 <body>
-  <h1>Untitled Cube Shooter</h1>
-  <button class="btn" onclick="location.href='main.html'">Play Game</button>
-  <div class="notes">
-    <h2>Patch Notes</h2>
-    <p>- Added pause (Esc) and masskill (Spacebar)<br>
-       - Enemies spawn continuously<br>
-       - Main menu with patch notes</p>
+  <div class="container">
+    <div class="menu">
+      <h1>Untitled shooting game.</h1>
+      <div class="menu-item" onclick="location.href='main.html'">Play</div>
+      <div class="menu-item selected">>> Patch notes</div>
+      <div class="menu-item">Options</div>
+    </div>
+    <div class="patch-notes">
+      <div class="patch-header">
+        <span>What’s new?</span>
+        <span class="version">v0.7</span>
+      </div>
+      <div class="patch-body">
+        <ul>
+          <li>Bug fixes</li>
+          <li>New UI & UX</li>
+        </ul>
+      </div>
+      <div class="back" onclick="history.back()">&lt;&lt; Back</div>
+    </div>
   </div>
 </body>
 </html>
